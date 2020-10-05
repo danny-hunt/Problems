@@ -1,0 +1,17 @@
+         502350355 function calls (426329011 primitive calls) in 1115.402 seconds
+
+   Ordered by: internal time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+122243172  879.221    0.000  907.371    0.000 c:\Users\dansi\Problems\Knight_walk\initial_brute_force.py:27(knights_moves)
+76021394/50  155.061    0.000 1115.401   22.308 c:\Users\dansi\Problems\Knight_walk\initial_brute_force.py:36(knights_tours)
+ 76021394   36.633    0.000   36.633    0.000 {method 'remove' of 'list' objects}
+152042688   28.149    0.000   28.149    0.000 {method 'append' of 'list' objects}
+ 76021394   16.336    0.000   16.336    0.000 {method 'copy' of 'list' objects}
+       52    0.001    0.000    0.002    0.000 {built-in method builtins.print}
+      104    0.000    0.000    0.000    0.000 C:\Python\lib\encodings\cp1252.py:18(encode)
+      104    0.000    0.000    0.000    0.000 {built-in method _codecs.charmap_encode}
+       52    0.000    0.000    0.000    0.000 {built-in method time.time}
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+
+

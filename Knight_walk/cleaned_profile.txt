@@ -1,0 +1,21 @@
+         4485941 function calls (3736557 primitive calls) in 2.071 seconds
+
+   Ordered by: internal time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+629496/29976    0.829    0.000    1.811    0.000 C:\Python\lib\copy.py:128(deepcopy)
+149880/29976    0.361    0.000    1.716    0.000 C:\Python\lib\copy.py:200(_deepcopy_list)
+  1258992    0.198    0.000    0.198    0.000 {method 'get' of 'dict' objects}
+    49320    0.182    0.000    0.191    0.000 c:\Users\dansi\Problems\Knight_walk\cleaned_depth_first.py:26(knights_moves)
+   959232    0.142    0.000    0.142    0.000 {built-in method builtins.id}
+   779344    0.112    0.000    0.112    0.000 {method 'append' of 'list' objects}
+   149880    0.110    0.000    0.154    0.000 C:\Python\lib\copy.py:242(_keep_alive)
+   479616    0.068    0.000    0.068    0.000 C:\Python\lib\copy.py:182(_deepcopy_atomic)
+ 29976/16    0.068    0.000    2.070    0.129 c:\Users\dansi\Problems\Knight_walk\cleaned_depth_first.py:38(knights_tours)
+       34    0.001    0.000    0.001    0.000 {built-in method builtins.print}
+       68    0.000    0.000    0.000    0.000 {built-in method _codecs.charmap_encode}
+       68    0.000    0.000    0.000    0.000 C:\Python\lib\encodings\cp1252.py:18(encode)
+       34    0.000    0.000    0.000    0.000 {built-in method time.time}
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+
+
