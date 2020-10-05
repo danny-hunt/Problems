@@ -25,11 +25,12 @@ board = create_board(N)
 #print(board)
 
 def knights_moves(board, position):
-    possible_moves = list()
-    for movement in knight_movements:
-        if [movement[0]+position[0], movement[1]+position[1]] in board:
-            possible_moves.append([movement[0]+position[0], movement[1]+position[1]])
-    return possible_moves
+    return [ [movement[0] + position[0], movement[1] + position[1]] for movement in knight_movements if [movement[0] + position[0], movement[1] + position[1]] in board]
+    #possible_moves = list()
+    #for movement in knight_movements:
+    #    if [movement[0]+position[0], movement[1]+position[1]] in board:
+    #        possible_moves.append([movement[0]+position[0], movement[1]+position[1]])
+    #return possible_moves
 
 #print(knights_moves(board, [2,2]))
 

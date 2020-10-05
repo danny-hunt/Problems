@@ -3,8 +3,8 @@
    Ordered by: internal time
 
    ncalls  tottime  percall  cumtime  percall filename:lineno(function)
-122243172  879.221    0.000  907.371    0.000 c:\Users\dansi\Problems\Knight_walk\initial_brute_force.py:27(knights_moves)
-76021394/50  155.061    0.000 1115.401   22.308 c:\Users\dansi\Problems\Knight_walk\initial_brute_force.py:36(knights_tours)
+122243172  879.221    0.000  907.371    0.000 c:\Users\dansi\Problems\Knight_walk\initial_depth_first.py:27(knights_moves)
+76021394/50  155.061    0.000 1115.401   22.308 c:\Users\dansi\Problems\Knight_walk\initial_depth_first.py:36(knights_tours)
  76021394   36.633    0.000   36.633    0.000 {method 'remove' of 'list' objects}
 152042688   28.149    0.000   28.149    0.000 {method 'append' of 'list' objects}
  76021394   16.336    0.000   16.336    0.000 {method 'copy' of 'list' objects}
