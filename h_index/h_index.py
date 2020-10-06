@@ -12,7 +12,7 @@ Given a list of paper citations of a researcher, calculate their h-index.
 """
 import copy
 
-citations_list = [4, 3, 0, 1, 5, 6, 7]
+citations_list = [5, 3, 0, 1, 5, 6, 7]
 
 
 def h_index(citations_list):
@@ -22,9 +22,16 @@ def h_index(citations_list):
     current_h = 0
     number_of_papers = len(c)
     for index, value in enumerate(c):
-        if value <= number_of_papers - index:
-            current_h = value
+        while value <= number_of_papers - index and current_h <= value:
+            current_h += 1
     return current_h
 
 print(h_index(citations_list))
 
+### now attempting to solve the problem without sorting/passing through the list multiple times
+"""
+stack = {}
+for x in citations_list:
+    if x in stack.keys():
+        
+"""
