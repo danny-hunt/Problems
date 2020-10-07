@@ -21,3 +21,27 @@ Using this scheme, Jackson and Jaxen both map to J250.
 
 Implement Soundex.
 """
+consonants = {'b', 'c' ,'d', 'f', 'g', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'x', 'y', 'z'}
+vowels = {'a', 'e', 'i', 'o', 'u', 'y', 'w', 'h'}
+
+mapping =  {'b': 1, 'f': 1, 'p': 1, 'v': 1, 
+            'c': 2, 'g': 2, 'j': 2, 'k': 2, 'q': 2, 's': 2, 'x': 2, 'z': 2,
+            'd': 3, 't': 3,
+            'l': 4,
+            'm': 5, 'n': 5,
+            'r': 6}
+
+def replace_consonants_with_digits(name, mapping=mapping):
+    name = list(name)
+    for index, letter in enumerate(name):
+        if letter in consonants:
+            name[index] = mapping[letter]
+            print(letter)
+    return str(name) # this needs to actually be string for the name
+
+
+def soundex(name):
+    first_letter = name[0]
+    name = replace_consonants_with_digits(name)
+
+print(replace_consonants_with_digits('Daniel'))
