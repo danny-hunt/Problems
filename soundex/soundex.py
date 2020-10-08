@@ -48,6 +48,7 @@ def truncate_repeated_letters(name):
 
 def soundex(name):
     name = name.lower()
+
     first_letter = str(name[0])
     name = replace_consonants_with_digits(name)
     truncated_name = truncate_repeated_letters(name)
