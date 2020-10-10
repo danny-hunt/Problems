@@ -13,3 +13,9 @@ For example, given the string .L.R....L, you should return LL.RRRLLL
 
 Given the string ..R...L.L, you should return ..RR.LLLL
 """
+
+dominoes = list("..R...L.L")
+print(dominoes)
+
+def first_approach():
+    pass
