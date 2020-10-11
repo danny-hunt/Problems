@@ -17,10 +17,9 @@ return null as there is no possible transformation from dog to cat.
 
 start = "dog"
 end = "cat"
-dictionary = {"dot", "dop", "dat", "cat"}
+dictionary = {"dot", "dop", "dat", "cat", "fro"}
 start_word_set = [start]
-checked_words = set(start_word_set[0])
-#dictionary.
+checked_words = {start}
 
 
 def list_one_off(start_word_set, dictionary, checked_words = checked_words):
@@ -35,13 +34,26 @@ def list_one_off(start_word_set, dictionary, checked_words = checked_words):
                 one_step_words.append(possible_word)
     return one_step_words
 
+
 print(list_one_off(start_word_set, dictionary))
 
-def update_checked_words(newly_checked_words, checked_words_set):
-    checked_words_set.add_contents_of(one_step_words)
 
-#set might need to be replaced by a dict so that we can track the path to the answer
-#atm all we can do is check whether there is a path
+def add_contents_of(set, additions):
+    for word in additions:
+        if word not in set:
+            set.add(word)
 
 
-        
+def update_checked_words(newly_checked_words, checked_words_set=checked_words):
+    add_contents_of(checked_words_set, newly_checked_words)
+
+
+while end not in checked_words:
+    new_words = list_one_off(start_word_set, dictionary)
+    update_checked_words(new_words)
+    start_word_set = new_words
+    print(checked_words)
+
+
+# at the moment, this only terminates if there is a path to the target word
+# it also would error if the dictionary contains words of different sizes

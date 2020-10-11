@@ -8,7 +8,8 @@
 
 class Structure(dict):
     def __init__(self):
-        self.size_dict = {}
+        self.size_list = [set()]
+        self.size_list_largest_index = 0
         self.smallest_value = 0
         self.greatest_value = 0
 
@@ -39,8 +40,13 @@ class Structure(dict):
         return self.smallest_value
 
 
-
-
-------------|----|--------------
-            |------------------- * 1/2
------------------|               * 1/2
+example = Structure()
+example.plus('help')
+example.plus('help')
+example.plus('5')
+example.plus('5')
+example.minus('5')
+example.minus('help')
+example.minus('5')
+assert example.get_max() == 'help'
+assert example.get_min() == 'help'
