@@ -1,4 +1,3 @@
 complete doublets
-start bst_...
 complete ghosts, order_one
 clean up knight_walk, h_index, sit_together, soundex
