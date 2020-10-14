@@ -12,28 +12,33 @@ import io
 
 # Assume that the board has a coordinate system and that tours sharing symmetry with other tours are still unique
 N = 4
-knight_movements = [[1,2], [2,1], [-1,2], [-2,1], [1,-2], [2,-1], [-1,-2], [-2,-1]]
+knight_movements = [[1, 2], [2, 1], [-1, 2], [-2, 1], [1, -2], [2, -1], [-1, -2], [-2, -1]]
 
-def create_board(N):
+
+def create_board(n):
     board = list()
-    for _ in range(N):
-        board.append([0] * N)
+    for _ in range(n):
+        board.append([0] * n)
     return board
+
 
 board = create_board(N)
 print(board)
+
 
 def knights_moves(board, position):
     possible_moves = list()
     for movement in knight_movements:
         new_x = movement[0] + position[0]
         new_y = movement[1] + position[1]
-        if  0 <= new_x < N and 0 <= new_y < N:
+        if 0 <= new_x < N and 0 <= new_y < N:
             if board[new_x][new_y] == 0:
                 possible_moves.append((new_x, new_y))
     return possible_moves
 
-#print(knights_moves(board, [2,2]))
+
+# print(knights_moves(board, [2,2]))
+
 
 def knights_tours(board, starting_square, count=0):
     count = 0
@@ -41,14 +46,15 @@ def knights_tours(board, starting_square, count=0):
     boardcopy[starting_square[0]][starting_square[1]] = 1
     if knights_moves(boardcopy, starting_square) != []:
         for move in knights_moves(boardcopy, starting_square):
-            #print(move)
-            #boardcopy = board.copy()
-            #boardcopy.remove(move)
+            # print(move)
+            # boardcopy = board.copy()
+            # boardcopy.remove(move)
             count += knights_tours(boardcopy, move)
     elif boardcopy == [[1, 1, 1, 1, 1], [1, 1, 1, 1, 1], [1, 1, 1, 1, 1], [1, 1, 1, 1, 1], [1, 1, 1, 1, 1]]:
-        #print("knight's path!")
+        # print("knight's path!")
         count += 1
     return count
+
 
 if __name__ == "__main__":
     pr = cProfile.Profile()

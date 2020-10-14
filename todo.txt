@@ -1,3 +1,8 @@
 complete doublets
 complete ghosts, order_one
 clean up knight_walk, h_index, sit_together, soundex
+
+current count: 7
+date:13
+
+aim to clear one a day by 19
