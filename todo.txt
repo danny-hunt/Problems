@@ -1,5 +1,5 @@
-complete doublets
 complete ghosts, order_one
+complete cryptarithmetic
 start stable marriage
 clean up knight_walk, h_index, sit_together, soundex
 

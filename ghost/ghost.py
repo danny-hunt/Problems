@@ -37,8 +37,15 @@ print(dictionary_with_lengths)
 
 
 def word_exists(string, dictionary = dictionary):
-    # create regex pattern for string + [a-z]+ and check existence in dictionary
-    pass
+    count = 0
+    for word in dictionary:
+        if word.startswith(string):
+            count += 1
+    if count > 0:
+        return True
+    if count < 1:
+        return False
+
 
 
 

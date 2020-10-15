@@ -14,10 +14,17 @@ return ["dog", "dot", "dat", "cat"].
 Given start = "dog", end = "cat", and dictionary = {"dot", "tod", "dat", "dar"}, 
 return null as there is no possible transformation from dog to cat.
 """
+import nltk
+nltk.download('words')
 
-start = "dog"
-end = "cat"
-dictionary = {"dot", "dop", "dat", "cat", "fro"}
+from nltk.corpus import words
+word_list = words.words()
+cleaned_word_list = [ word.strip(' ') for word in word_list if len(word.strip(' ')) == 5]
+cleaned_word_list.extend(['biden', 'trump'])
+
+start = "trump"
+end = "biden"
+dictionary = cleaned_word_list
 start_word_set = [start]
 checked_words = {start}
 
@@ -26,12 +33,17 @@ def list_one_off(start_word_set, dictionary, checked_words = checked_words):
     one_step_words = []
     for starting_word in start_word_set:
         for possible_word in dictionary:
-            count = 0
-            for letter in range(len(possible_word)):
-                if starting_word[letter] != possible_word[letter]:
-                    count += 1
-            if count == 1 and possible_word not in checked_words:
-                one_step_words.append(possible_word)
+            candidate = possible_word.lower()
+            try:
+                count = 0
+                for letter in range(len(possible_word)):
+                    if starting_word[letter] != possible_word[letter]:
+                        count += 1
+                if count == 1 and possible_word not in checked_words:
+                    one_step_words.append(possible_word)
+            except Exception:
+                print(candidate)
+                pass
     return one_step_words
 
 
@@ -41,7 +53,7 @@ print(list_one_off(start_word_set, dictionary))
 def add_contents_of(set, additions):
     for word in additions:
         if word not in set:
-            set.add(word)
+            set.add(word.lower())
 
 
 def update_checked_words(newly_checked_words, checked_words_set=checked_words):
