@@ -1,8 +1,4 @@
-""""
-Complete things marked with TODO (and only those, no need to touch other things).
-Each todo is marked if it's for basic or intermediate.
-You do not have to solve all TODOs to pass, but each solved adds you points.
-"""
+
 import itertools
 
 class Cat:
@@ -13,9 +9,6 @@ class Cat:
         self._agility = 5
         self._speed = 0.0
         self.is_racing = False
-        # TODO for intermediate:
-        # Each time a cat is created increase this id by 1
-        # (first id can be whatever number you want as long as ids are in +1 ascending order)
         self._id = next(self.new_id)
 
     def __hash__(self):
@@ -105,14 +98,31 @@ class NyaRace:
         self._kitty_participants = set()
         self._race_started = False
         self._kitty_id = 0
+        self._kitty_distances = []
+        self._kitty_speeds = []
 
     def add_kitty_participant(self, kitty: Cat):
         if not kitty.is_racing:
             self._kitty_participants.add(kitty)
-            kitty.is_racing = True
 
     def step(self):
+        if not self._race_started:
+            for kitty in self._kitty_participants:
+                kitty.is_racing = True
+            self._race_started = True
 
+        if len(self._kitty_distances) == 0:
+            for kitty in self._kitty_participants:
+                self._kitty_distances.append([kitty, 0])
+                self._kitty_speeds.append([kitty, 0])
+
+        while max([pair[1] for pair in self._kitty_distances]) < self.race_length and
+            max([pair[1] for pair in self._kitty_distances]) > 0:
+
+        for kitty in self._kitty_participants:
+            kitty.step()
+            self._kitty_speeds
+            self._kitty_distances[kitty] += kitty.speed
         """
         TODO for intermediate:
         Implement step feature. Think of step as one second of time.
