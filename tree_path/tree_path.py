@@ -15,3 +15,8 @@ the longest path would be c -> a -> d -> f, with a length of 17.
 
 The path does not have to pass through the root, and each node can have any amount of children.
 """
+class Node:
+    def __init__(self, name):
+    self.name = name
+
+def longest_path_from(tree):
