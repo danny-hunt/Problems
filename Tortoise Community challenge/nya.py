@@ -1,14 +1,15 @@
-
 import itertools
+
 
 class Cat:
     new_id = itertools.count()
+
     def __init__(self, name: str):
         self.name = name
+        self.is_racing = False
         self._food = 500
         self._agility = 5
         self._speed = 0.0
-        self.is_racing = False
         self._id = next(self.new_id)
 
     def __hash__(self):
@@ -52,6 +53,10 @@ class Cat:
             self._speed = speed
 
     @property
+    def id(self):
+        return self._id
+
+    @property
     def maximum_speed(self) -> float:
         return 1 + int(self.food / 70)
 
@@ -80,7 +85,6 @@ class Cat:
         self.speed = 0
 
     def step(self):
-        """Think of this as one second of time in race track."""
         self.accelerate()
         if self.food == 0:
             self.hit_the_brakes()
@@ -90,52 +94,42 @@ class Cat:
 
 class NyaRace:
     def __init__(self, race_length: int):
-        """
-        Class that deals with kitty racing.
-        :param race_length: integer, length of race track in meters.
-        """
         self._race_length = race_length
         self._kitty_participants = set()
         self._race_started = False
-        self._kitty_id = 0
         self._kitty_distances = []
-        self._kitty_speeds = []
+        self._kitty_speeds = {}
+        self._race_ended = False
 
     def add_kitty_participant(self, kitty: Cat):
         if not kitty.is_racing:
             self._kitty_participants.add(kitty)
 
     def step(self):
-        if not self._race_started:
+        if not self._race_ended:
+            if not self._race_started:
+                for kitty in self._kitty_participants:
+                    kitty.is_racing = True
+                self._race_started = True
+
+            if len(self._kitty_distances) == 0:
+                for kitty in self._kitty_participants:
+                    self._kitty_distances.append([kitty, 0, kitty.id])
+                    self._kitty_speeds[kitty.name + str(kitty.id)] = 0
+
             for kitty in self._kitty_participants:
-                kitty.is_racing = True
-            self._race_started = True
+                kitty.step()
+                self._kitty_speeds[kitty.name + str(kitty.id)] = kitty.speed
+                for kitty_distance in self._kitty_distances:
+                    if kitty_distance[0] == kitty:
+                        kitty_distance[1] += kitty.speed
 
-        if len(self._kitty_distances) == 0:
-            for kitty in self._kitty_participants:
-                self._kitty_distances.append([kitty, 0])
-                self._kitty_speeds.append([kitty, 0])
+            self._kitty_distances = sorted(self._kitty_distances, key=lambda distance: (distance[1], distance[2]))
 
-        while max([pair[1] for pair in self._kitty_distances]) < self.race_length and
-            max([pair[1] for pair in self._kitty_distances]) > 0:
+            if (self._kitty_distances[len(self._kitty_participants) - 1][1] >= self._race_length or
+                    sum(self._kitty_speeds.values()) == 0):
+                self._race_ended = True
 
-        for kitty in self._kitty_participants:
-            kitty.step()
-            self._kitty_speeds
-            self._kitty_distances[kitty] += kitty.speed
-        """
-        TODO for intermediate:
-        Implement step feature. Think of step as one second of time.
-        - First step also marks the race as started and sets all kitties racing status to True.
-        - Keep track of each kitty passed distance so you can know which kitty is in which place
-          (you need to implement this yourself, do it however you see fit as long as this method yields the
-          correct results).
-        - Each race step should call each kitty step method (which deals with acceleration and food consumption).
-        - Each time this is called each kitty should pass some distance depending on its current speed (be sure to call
-          kitty step first as stated in above note)
-        - This should be a generator that each time yields a list of kittens ordered from last to first place, first
-          list index representing the last place and last list index representing the first place in race.
-          (if 2 or more kittens are in the same place then they should be ordered by cat id)
-        - Last yield is as soon as any kitten passes the finish line (or if all have stopped).
-        """
-        pass
+            yield[kitty[0] for kitty in self._kitty_distances]
+        else:
+            pass
