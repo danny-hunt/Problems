@@ -5,7 +5,7 @@ def fizzbuzz_naive(n):
             output += "fizz"
         if number % 5 == 0:
             output += "buzz"
-        if len(output) == 0:
+        if not output:
             output += str(number)
         print(output)
 
