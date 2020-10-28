@@ -16,7 +16,7 @@ def is_anagram_with_sorting(string_1, string_2):
         return False
 
 
-assert is_anagram_with_sorting("trade", "tread") == True
+assert is_anagram_with_sorting("trade", "tread")
 print(is_anagram_with_sorting("trade", "trader"))
 
 
@@ -41,7 +41,8 @@ def is_anagram_without_sorting(string_1, string_2):
     else:
         return True
 
-assert is_anagram_without_sorting("trade", "tread") == True
+
+assert is_anagram_without_sorting("trade", "tread")
 print(is_anagram_without_sorting("trade", "trader"))
 
 """
