@@ -1,7 +1,1 @@
-complete ghosts, order_one
-clean up knight_walk, h_index, sit_together, soundex
-
-current count: 6
-date:17
-
-aim to clear one a day by 19
+loose_change, restrained_sort, skylines
