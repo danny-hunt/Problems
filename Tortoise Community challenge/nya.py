@@ -106,7 +106,7 @@ class NyaRace:
             self._kitty_participants.add(kitty)
 
     def step(self):
-        if not self._race_ended:
+        while not self._race_ended:
             if not self._race_started:
                 for kitty in self._kitty_participants:
                     kitty.is_racing = True
@@ -130,6 +130,4 @@ class NyaRace:
                     sum(self._kitty_speeds.values()) == 0):
                 self._race_ended = True
 
-            yield[kitty[0] for kitty in self._kitty_distances]
-        else:
-            pass
+            yield [kitty[0] for kitty in self._kitty_distances]
