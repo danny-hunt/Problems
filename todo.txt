@@ -1,1 +1,1 @@
-loose_change, restrained_sort, skylines
+loose_change, restrained_sort, skylines, red-black tree, histogram_rectangle
