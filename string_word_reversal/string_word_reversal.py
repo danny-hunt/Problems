@@ -26,7 +26,7 @@ def second_reverse(character_list):
         head += 1
     character_list[last_word_start:head] = character_list[last_word_start:head][::-1]
 
-    return "".join(character_list)
+    return character_list
 
 
 print(second_reverse(list("this is the word list a thing")))
