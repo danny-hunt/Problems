@@ -62,6 +62,4 @@ def recall(i_index, j_index, k_index, possible_word, possible_list, reduced_word
 
 print(longest_subsequence(reduce_words(['refzzzzz', 'rezzzzasfzzzzz', 'reeez'])))
 
-#print(reduce_words(['refzzzzz', 'rezzzzasfzzzzz', 'reeez']))
-
-
+# print(reduce_words(['refzzzzz', 'rezzzzasfzzzzz', 'reeez']))
