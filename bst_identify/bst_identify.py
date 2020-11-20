@@ -6,7 +6,7 @@ that the key in the left child must be less than or equal to the root and the ke
 child must be greater than or equal to the root.
 """
 
-def valid_section(root):
+def valid_section(tree):
     going_to_be = True
     if tree.left is not None:
         if tree.left.value > tree.value:
