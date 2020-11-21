@@ -7,6 +7,9 @@ child must be greater than or equal to the root.
 """
 
 def valid_section(tree):
+    if tree is None:
+        return True
+
     going_to_be = True
     if tree.left is not None:
         if tree.left.value > tree.value:
