@@ -2,10 +2,7 @@ import time
 import itertools
 
 board = [[0] * 8 for _ in range(8)]
-print(board)
-
 squares = itertools.product(range(8), repeat=2)
-print(squares)
 
 possible_placements = itertools.combinations(squares, 7)
 
@@ -59,7 +56,7 @@ if any(fairy in test_set for fairy in test_placement):
 else:
     print("test set is successful")
 
-
+print(list(possible_placements))
 counter = 0
 start_time = time.time()
 for placement in possible_placements:
