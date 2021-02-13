@@ -1,4 +1,6 @@
 from random import randint
+from __future__ import annotations
+from typing import List
 
 
 class BinaryHeap:
@@ -32,6 +34,15 @@ class BinaryHeap:
 
     def add(self, new_value):
         return self.__add_node(new_value, self)
+
+    def sort(self: BinaryHeap, reverse_list: list=[]) -> List[int]:
+        # to be implemented
+        pass
+    
+
+
+
+
 
 
 x = BinaryHeap(5)
