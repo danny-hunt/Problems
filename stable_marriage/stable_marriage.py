@@ -48,11 +48,12 @@ for key, value in gal_preferences.items():
 def marriage(guy_preferences, gal_preferences):
     proposals = [2]
     while proposals != []:
-        proposals = []
+        proposals = [
+            [guy, value[value[-1]]]
+            for guy, value in guy_preferences.items()
+            if guy_preferences[guy][-2] == 0
+        ]
 
-        for guy, value in guy_preferences.items():
-            if guy_preferences[guy][-2] == 0:
-                proposals.append([guy, value[value[-1]]])
 
         if proposals == []:
             return 0

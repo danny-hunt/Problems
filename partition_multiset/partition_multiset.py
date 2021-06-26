@@ -10,22 +10,18 @@ into two subsets that add up to the same sum.
 """
 
 def partitionable(multiset):
-    size = 0
-    for x in multiset:
-        size += x
-
+    size = sum(multiset)
     if size % 2 == 1:
         return False
-    else:
-        multilist = list(multiset)
-        # initialise table
-        array = [(len(multiset) + 1) * [0]] * ((size + 2) // 2)
-        print(len(array))
+    multilist = list(multiset)
+    # initialise table
+    array = [(len(multiset) + 1) * [0]] * ((size + 2) // 2)
+    print(len(array))
 
-        for x in array:
-            x[0] = False
-        array[0] = [True] * (len(multiset) + 1)
-        print(array)
+    for x in array:
+        x[0] = False
+    array[0] = [True] * (len(multiset) + 1)
+    print(array)
 
 
 example_set = (15, 5, 20, 10, 35, 15, 10)

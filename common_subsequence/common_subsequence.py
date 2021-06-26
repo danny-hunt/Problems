@@ -13,10 +13,14 @@ it should return 5, since the longest common subsequence is "eieio".
 def reduce_words(word_list):
     reduced_words = []
     for index, word in enumerate(word_list):
-        word_string = ""
-        for letter in word:
-            if letter in word_list[0] and letter in word_list[1] and letter in word_list[2]:
-                word_string += letter
+        word_string = "".join(
+            letter
+            for letter in word
+            if letter in word_list[0]
+            and letter in word_list[1]
+            and letter in word_list[2]
+        )
+
         reduced_words.append(word_string)
 
     print(reduced_words)

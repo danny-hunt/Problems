@@ -32,8 +32,7 @@ def sort_words(string):
     word_list = string.split(' ')
     lowered_list = [[word.lower(), index] for index, word in enumerate(word_list)]
     lowered_list.sort()
-    output_list = [word_list[lowered_word[1]] for lowered_word in lowered_list]
-    return output_list
+    return [word_list[lowered_word[1]] for lowered_word in lowered_list]
 
 assert sort_words("this is JUsT a Tribute ty") == ['a', 'is', 'JUsT', 'this', 'Tribute', 'ty']
 

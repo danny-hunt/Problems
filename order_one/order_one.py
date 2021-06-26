@@ -25,7 +25,7 @@ class Structure(dict):
         key_string = str(key)
         self[key_string] -= 1
         new_index = self[key_string]
-        if self[key_string] > 1:
+        if new_index > 1:
             self.size_dict[str(new_index)].append(key_string)
             self.size_dict[str(new_index + 1)].remove(key)
 

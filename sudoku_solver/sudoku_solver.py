@@ -7,9 +7,7 @@ with open('sudoku.json') as json_file:
     list_of_puzzles = json.load(json_file)['puzzle']
 
 def solve(sudoku):
-    completed_sudoku = 5
-
-    return completed_sudoku
+    return 5
 
 def print_sudoku(board):
     board_for_printing = copy.copy(board)

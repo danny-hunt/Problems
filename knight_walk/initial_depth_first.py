@@ -15,7 +15,7 @@ N = 5
 knight_movements = [[1,2], [2,1], [-1,2], [-2,1], [1,-2], [2,-1], [-1,-2], [-2,-1]]
 
 def create_board(N):
-    board = list()
+    board = []
     for x in range(N):
         for y in range(N):
             board.append([x+1, y+1])

@@ -9,9 +9,6 @@ def reverze(list, i, j):
     elif i == 0:
         if j == len(list) - 1:
             return list.reverse()
-        else:
-            #finish this part at some point
-            pass
 
 
 point = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]

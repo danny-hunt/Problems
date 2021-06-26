@@ -46,10 +46,12 @@ def fizzbuzz3(n, *args):
             factor_words[str(factor)] = random.choice(word_list)
 
     for number in range(1,n+1):
-        output = ""
-        for factor in factors:
-            if number % factor == 0:
-                output = output + factor_words[str(factor)]
+        output = "".join(
+            factor_words[str(factor)]
+            for factor in factors
+            if number % factor == 0
+        )
+
         if len(output) == 0:
             output += str(number)
         print(output)

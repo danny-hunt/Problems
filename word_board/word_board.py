@@ -19,11 +19,10 @@ def exists(board, string):
     for i in len(board):
         for j in len(board[0]):
             word = string
-            route = []
-            letter_index = 0
             if board[i][j] == word[0]:
-                route.append([i, j])
+                route = [[i, j]]
                 board[i][j] = '_'
+                letter_index = 0
                 letter_index += 1
                 while word != '':
                     next_letter(i, j, word[letter_index:], board)

@@ -25,8 +25,8 @@ def find_subsequence_length(array: List[int]) -> int:
 
     for entry in array:
         new_current_longest = {}
-        for largest in current_longest:
-            if entry > current_longest[largest]:
+        for largest, value in current_longest.items():
+            if entry > value:
                 if largest + 1 in current_longest:
                     if entry < current_longest[largest + 1]:
                         new_current_longest[largest + 1] = entry

@@ -37,10 +37,7 @@ print(dictionary_with_lengths)
 
 
 def word_exists(string, dictionary = dictionary):
-    count = 0
-    for word in dictionary:
-        if word.startswith(string):
-            count += 1
+    count = sum(bool(word.startswith(string)) for word in dictionary)
     if count > 0:
         return True
     if count < 1:

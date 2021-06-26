@@ -14,7 +14,7 @@ Given N, M, and B, determine the number of valid playlists.
 def count_playlist(N, M, B):
     running_total = 1
     available_songs = M
-    for x in range(N):
+    for _ in range(N):
         running_total *= available_songs
         if available_songs > M - B:
             available_songs -= 1

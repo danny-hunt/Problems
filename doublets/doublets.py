@@ -35,15 +35,15 @@ def list_one_off(start_word_set, dictionary, checked_words = checked_words):
         for possible_word in dictionary:
             candidate = possible_word.lower()
             try:
-                count = 0
-                for letter in range(len(possible_word)):
-                    if starting_word[letter] != possible_word[letter]:
-                        count += 1
+                count = sum(
+                    starting_word[letter] != possible_word[letter]
+                    for letter in range(len(possible_word))
+                )
+
                 if count == 1 and possible_word not in checked_words:
                     one_step_words.append(possible_word)
             except Exception:
                 print(candidate)
-                pass
     return one_step_words
 
 

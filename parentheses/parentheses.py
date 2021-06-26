@@ -21,7 +21,7 @@ def count_removal(parentheses):
     for parenthesis in parentheses:
         if parenthesis == "(":
             levels_deep += 1
-        if parenthesis == ")":
+        elif parenthesis == ")":
             if levels_deep == 0:
                 backwards_facing_removed += 1
             else:

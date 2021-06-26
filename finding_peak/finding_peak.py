@@ -19,13 +19,13 @@ def find_peak(array: List[int]) -> int:
     lower_index = 0
     upper_index = len(array) - 1
     middle_index = get_middle_index(lower_index, upper_index)
-    if array[middle_index - 1] < array[middle_index]:
-        if array[middle_index] > array[middle_index + 1]:
-            return array[middle_index]
-        else:
-            return find_peak(array[middle_index:upper_index + 1])
-    else:
+    if array[middle_index - 1] >= array[middle_index]:
         return find_peak(array[lower_index:middle_index + 1])
+
+    if array[middle_index] > array[middle_index + 1]:
+        return array[middle_index]
+    else:
+        return find_peak(array[middle_index:upper_index + 1])
 
 
 def test_this(n: int) -> None:

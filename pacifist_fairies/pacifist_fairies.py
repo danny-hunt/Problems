@@ -10,13 +10,8 @@ square_dict = {}
 
 
 def can_see_from(square):
-    if square in square_dict:
-        return square_dict[square]
-    else:
-        attacked_squares = set()
-        for x in range(8):
-            if x != square[0]:
-                attacked_squares.add((x, square[1]))
+    if square not in square_dict:
+        attacked_squares = {(x, square[1]) for x in range(8) if x != square[0]}
         for y in range(8):
             if y != square[1]:
                 attacked_squares.add((square[0], y))
@@ -37,9 +32,8 @@ def can_see_from(square):
             if 0 <= square[0] <= 7 and 0 <= square[1] <= 7:
                 output_set.add(square)
         square_dict[square] = output_set
-        #print(output_set)
-        #print(len(output_set))
-        return square_dict[square]
+
+    return square_dict[square]
 
 
 test_set = set()
@@ -57,21 +51,17 @@ else:
     print("test set is successful")
 
 print(list(possible_placements))
-counter = 0
 start_time = time.time()
-for placement in possible_placements:
+for counter, placement in enumerate(possible_placements):
     if counter % 1000000 == 0:
         print(f" {counter // 1000000} million many done! in {time.time() - start_time}s")
 
-    counter += 1
     danger_set = set()
     for fairy in placement:
         danger_set = danger_set.union(can_see_from(fairy))
     #print(f" placement is : {placement}")
     #print(f" danger_set is {danger_set}")
-    if any(fairy in danger_set for fairy in placement):
-        pass
-    else:
+    if all(fairy not in danger_set for fairy in placement):
         print(f"successful placement is {placement}")
 
 

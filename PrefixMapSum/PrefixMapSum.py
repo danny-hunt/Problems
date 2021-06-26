@@ -31,16 +31,13 @@ class PrefixMapSum:
 
     def __init__(self):
         self.children = {}
-        pass
 
     def insert(self, key, value):
         current_object = self
         for letter in key:
-            if letter in current_object.children:
-                current_object = current_object.children[letter]
-            else:
+            if letter not in current_object.children:
                 current_object.children[letter] = Node(letter)
-                current_object = current_object.children[letter]
+            current_object = current_object.children[letter]
         current_object.value = value
 
     def sum(self, prefix):

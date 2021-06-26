@@ -41,15 +41,14 @@ def find_median_seat(M, starting_seats):
 def determine_final_seats(M, median_seat):
     first_seat = median_seat + (1 - M) // 2
     last_seat = median_seat + (M - 1) // 2
-    seats = range(first_seat, last_seat + 1)
-    return seats
+    return range(first_seat, last_seat + 1)
 
 
 def determine_cost(final_seats, starting_seats):
-    cost = 0
-    for index, value in enumerate(final_seats):
-        cost += abs(value - starting_seats[index])
-    return cost
+    return sum(
+        abs(value - starting_seats[index])
+        for index, value in enumerate(final_seats)
+    )
 
 
 # determine_final_seats(find_median_seat(process(input))) <-- need to unpack tuples in function arguments

@@ -21,10 +21,7 @@ def substrCount(s):
     string_augment.append((current_character, current_count))
     print(string_augment)
 
-    count = 0
-    for x in string_augment:
-        count += x[1] * (x[1] + 1) // 2
-
+    count = sum(x[1] * (x[1] + 1) // 2 for x in string_augment)
     for index in range(2, len(string_augment)):
         if string_augment[index - 2][0] == string_augment[index][0] and string_augment[index - 1][1] == 1:
             count += min(string_augment[index - 2][1], string_augment[index][1])
