@@ -51,13 +51,13 @@ class PeekableInterface(object):
             return self.iterator.next()
 
     def next(self):
-        if self.has_peeked:
-            temp = self.peeked_value
-            self.peeked_value = None
-            self.has_peeked = False
-            return temp
-        else:
+        if not self.has_peeked:
             return self.iterator.next()
+
+        temp = self.peeked_value
+        self.peeked_value = None
+        self.has_peeked = False
+        return temp
 
     def hasNext(self):
         return self.has_peeked or self.iterator.hasNext()

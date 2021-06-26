@@ -10,10 +10,7 @@ def is_anagram_with_sorting(string_1, string_2):
     first_string.sort()
     second_string.sort()
 
-    if first_string == second_string:
-        return True
-    else:
-        return False
+    return first_string == second_string
 
 
 assert is_anagram_with_sorting("trade", "tread")
@@ -29,17 +26,13 @@ def is_anagram_without_sorting(string_1, string_2):
             first_string[letter] = 1
 
     for letter in string_2:
-        if letter in first_string:
-            first_string[letter] -= 1
-            if first_string[letter] == 0:
-                del first_string[letter]
-        else:
+        if letter not in first_string:
             return False
 
-    if first_string:
-        return False
-    else:
-        return True
+        first_string[letter] -= 1
+        if first_string[letter] == 0:
+            del first_string[letter]
+    return not first_string
 
 
 assert is_anagram_without_sorting("trade", "tread")

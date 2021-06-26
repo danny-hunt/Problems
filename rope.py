@@ -2,22 +2,13 @@
 class Rope:
 
     def __init__(self, entries):
-        if isinstance(entries, str):
-            self.contents = [entries]
-        else:
-            self.contents = entries
+        self.contents = [entries] if isinstance(entries, str) else entries
 
     def __str__(self):
-        base_string = ""
-        for object in self.contents:
-             base_string += str(object)
-        return base_string
+        return "".join(str(object) for object in self.contents)
 
     def __len__(self):
-        count = 0
-        for object in self.contents:
-            count += len(object)
-        return count
+        return sum(len(object) for object in self.contents)
 
     def _index_of(self, character):
         index_count = 0

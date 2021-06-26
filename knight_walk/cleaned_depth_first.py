@@ -16,10 +16,7 @@ knight_movements = [[1, 2], [2, 1], [-1, 2], [-2, 1], [1, -2], [2, -1], [-1, -2]
 
 
 def create_board(n):
-    board = list()
-    for _ in range(n):
-        board.append([0] * n)
-    return board
+    return [[0] * n for _ in range(n)]
 
 
 board = create_board(N)
@@ -27,13 +24,12 @@ print(board)
 
 
 def knights_moves(board, position):
-    possible_moves = list()
+    possible_moves = []
     for movement in knight_movements:
         new_x = movement[0] + position[0]
         new_y = movement[1] + position[1]
-        if 0 <= new_x < N and 0 <= new_y < N:
-            if board[new_x][new_y] == 0:
-                possible_moves.append((new_x, new_y))
+        if 0 <= new_x < N and 0 <= new_y < N and board[new_x][new_y] == 0:
+            possible_moves.append((new_x, new_y))
     return possible_moves
 
 

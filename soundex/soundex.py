@@ -40,8 +40,7 @@ def replace_consonants_with_digits(name, mapping=mapping):
     return name # this needs to actually be string for the name
 
 def truncate_repeated_letters(name):
-    truncated_name = [value for index, value in enumerate(name) if value != name[index-1]]
-    return truncated_name
+    return [value for index, value in enumerate(name) if value != name[index-1]]
 
 
 

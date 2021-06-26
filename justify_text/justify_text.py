@@ -38,12 +38,11 @@ def justify(words, k):
         if result > k:
             justified.append(create_line(words_to_add, length_count, k))
             words_to_add = []
-            words_to_add.append(word)
             length_count = length
         else:
-            words_to_add.append(word)
             length_count = result
-    if len(words_to_add) > 0:
+        words_to_add.append(word)
+    if words_to_add:
         justified.append(create_line(words_to_add, length_count, k))
 
     return justified

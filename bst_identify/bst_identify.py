@@ -11,12 +11,10 @@ def valid_section(tree):
         return True
 
     going_to_be = True
-    if tree.left is not None:
-        if tree.left.value > tree.value:
-            going_to_be = False
-    if tree.right is not None:
-        if tree.right.value < tree.value:
-            going_to_be = False
+    if tree.left is not None and tree.left.value > tree.value:
+        going_to_be = False
+    if tree.right is not None and tree.right.value < tree.value:
+        going_to_be = False
     return going_to_be
 
 

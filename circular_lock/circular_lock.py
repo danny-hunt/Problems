@@ -15,9 +15,7 @@ or None if this is impossible.
 
 def dijkstra(target, dead_ends, start=(0,0,0)):
     vertex_set = {(i, j, k) for i in range(10) for j in range(10) for k in range(10)}
-    distances = {}
-    for v in vertex_set:
-        distances[v] = 10000
+    distances = {v: 10000 for v in vertex_set}
     distances[start] = 0
     counter = 0
     while distances:
@@ -40,13 +38,12 @@ def dijkstra(target, dead_ends, start=(0,0,0)):
 
 
 def neighbours(vertex):
-    neighbour_set = {((vertex[0] + 1) % 10, vertex[1], vertex[2]),
+    return {((vertex[0] + 1) % 10, vertex[1], vertex[2]),
                      ((vertex[0] - 1) % 10, vertex[1], vertex[2]),
                      (vertex[0], (vertex[1] + 1) % 10, vertex[2]),
                      (vertex[0], (vertex[1] - 1) % 10, vertex[2]),
                      (vertex[0], vertex[1], (vertex[2] + 1) % 10),
                      (vertex[0], vertex[1], (vertex[2] - 1) % 10)}
-    return neighbour_set
 
 
 assert dijkstra((0, 0, 2), [(0, 0, 1)])[0] == 4

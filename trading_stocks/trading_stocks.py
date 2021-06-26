@@ -19,9 +19,8 @@ def best_return(prices: List[int]) -> int:
     for cost in prices:
         if cost < current_lowest:
             current_lowest = cost
-        else:
-            if cost - current_lowest > current_max_return:
-                current_max_return = cost - current_lowest
+        elif cost - current_lowest > current_max_return:
+            current_max_return = cost - current_lowest
     return current_max_return
 
 print(stock_prices)

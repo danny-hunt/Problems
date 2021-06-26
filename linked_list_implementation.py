@@ -26,7 +26,7 @@ class LinkedList:
         output_string = str(visited_node.value)
         while visited_node.next_node is not None:
             visited_node = visited_node.next_node
-            output_string = output_string + str(visited_node.value)
+            output_string += str(visited_node.value)
         return output_string
 
     def go_to_next_node(self):

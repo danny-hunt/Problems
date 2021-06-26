@@ -2,10 +2,8 @@ class AlicesBirthday:
 
     def generate_fibs(self, k):
         fibs = [1, 1]
-        n = 2
-        while n < k:
+        for n in range(2, k):
             fibs.append(fibs[n - 2] + fibs[n - 1])
-            n += 1
         return fibs
 
     def partition(self, k):

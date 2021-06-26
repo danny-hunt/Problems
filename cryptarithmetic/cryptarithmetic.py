@@ -31,12 +31,10 @@ def solve(operand_one, operand_two, result, operator = 'plus'):
         letter_list.append('_')
 
     def calculate_number(string, letter_values):
-        number = 0
-        power_ten = 0
-        for letter in string[::-1]:
-            number += letter_values.index(letter) * 10 ** power_ten
-            power_ten += 1
-        return number
+        return sum(
+            letter_values.index(letter) * 10 ** power_ten
+            for power_ten, letter in enumerate(string[::-1])
+        )
 
     #print(calculate_number("SEND"))
     #assert calculate_number("SEND") == 1230
@@ -59,10 +57,7 @@ def solve(operand_one, operand_two, result, operator = 'plus'):
         return offspring
 
     def create_new_generation(current_generation):
-        new_generation = []
-        for _ in range(10):
-            new_generation.append(create_offspring(current_generation))
-        return new_generation
+        return [create_offspring(current_generation) for _ in range(10)]
 
     def find_fittest_offspring(generation, letter_values):
         current_fittest_index, current_fittest_value = 100, 1000000

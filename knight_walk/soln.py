@@ -30,16 +30,15 @@ def knights_tours(n):
 def knights_tours_helper(board, tour, n):
     if len(tour) == n * n:
         return 1
-    else:
-        count = 0
-        last_r, last_c = tour[-1]
-        for r, c in valid_moves(board, last_r, last_c, n):
-            tour.append((r, c))
-            board[r][c] = len(tour)
-            count += knights_tours_helper(board, tour, n)
-            tour.pop()
-            board[r][c] = None
-        return count
+    count = 0
+    last_r, last_c = tour[-1]
+    for r, c in valid_moves(board, last_r, last_c, n):
+        tour.append((r, c))
+        board[r][c] = len(tour)
+        count += knights_tours_helper(board, tour, n)
+        tour.pop()
+        board[r][c] = None
+    return count
 
 if __name__ == "__main__":
     start = time()

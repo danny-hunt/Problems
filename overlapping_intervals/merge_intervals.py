@@ -12,7 +12,7 @@ def merge_intervals(intervals):
     new_list = intervals.copy()
     new_list.sort()
     print(new_list)
-    for interval in intervals:
+    for _ in intervals:
         pass
 
 
